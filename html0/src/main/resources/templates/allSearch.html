@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<span th:text="${peoples}"></span>
+	<br><br><br><br>
+	
+	
+	<!-- th:if             : if문이라 생각하면 된다 -->
+	<div th:if="${not #lists.isEmpty(peoples)}">
+	<!-- class는 table 디자인이라 생각하면 된다  -->
+    <table class="glyphicon glyphicon-calendar">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        <!-- th:each		: 특정 요소 반복, 여기선 peoples라는 객체 요소 반복 -->
+        <tr th:each="peoples : ${peoples}">
+            <td th:text="${peoples.id}"></td>
+            <td th:text="${peoples.name}"></td>
+        </tr>
+    </table>
+    <hr/>
+</div>
+
+</div>
+</body>
+</html>

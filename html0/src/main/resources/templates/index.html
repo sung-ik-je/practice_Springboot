@@ -7,8 +7,10 @@
 <body>
 
 <br><br><br><br><br>
-	<form action="/add.do" id="newId" method="post">
-	<h3>이름 입력하는 부분</h3>
+	
+	<h3>이름을 등록하고자 하는 경우 </h3>
+	<form action="/add" id="newId" method="post">
+	
 		<p>  <!-- 문단 나누는 태그  -->
 			<strong>이름</strong>
 			<input type="text" name="name" value="이름 입력">
@@ -16,5 +18,41 @@
 		<p>
 			<input type='submit' value='저장'>
 		</p>
+	</form>
+<br><br><br>
+	<h3>이름을 변경하고자 하는 경우</h3>
+	<form action="/update" id="updateId" method="post">
+		<input type="hidden" name="_method" value="PUT"/>
+		<p>  
+			<strong>번호</strong>
+			<input type="text" name="id" value="번호 입력">
+		</p>
+		<p>  
+			<strong>변경하고자 하는 이름</strong>
+			<input type="text" name="name" value="변경하려는 이름 입력">
+		</p>
+		<p>
+			<input type='submit' value='수정'>
+		</p>
+	</form>
+<br><br><br>
+	<h3>삭제하고자 하는 경우</h3>
+	<form action="/delete" id="updateId" method="post">
+		<input type="hidden" name="_method" value="DELETE"/>
+		<p>  
+			<strong>번호</strong>
+			<input type="text" name="id" value="삭제할 번호 입력">
+		</p>
+		<p>
+			<input type='submit' value='삭제'>
+		</p>
+	</form>
+<br><br><br>
+<h3>등록된 이름을 보고자 하는 경우 </h3>
+	<form action="/search" id="searchId" method="get">
+		<p>		
+			<input type='submit' value='전체 조회'>
+		</p>
+	</form>
 </body>
 </html>
