@@ -12,5 +12,12 @@ public interface PeoplesRepository extends JpaRepository<Peoples, Long> {
 	
 	public List<Peoples> findAll();
 	
-	public List<Peoples> findAllById(Long id);
+	
+	public Peoples save(Peoples peoples);
+	
+	
+	public Peoples getById(Long id);
+	
+	
+	public void deleteById(Long id);
 }

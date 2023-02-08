@@ -5,14 +5,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Peoples {
 
+	
 	@Id		//PK
-	@GeneratedValue(strategy = GenerationType.IDENTITY)		//column 생성 조건, auto_increment
+	@GeneratedValue(strategy = GenerationType.IDENTITY)		
 	private long id;
 	private String name;
+	
+	
+	public Peoples(String name) {
+		this.name = name;
+	}
 }

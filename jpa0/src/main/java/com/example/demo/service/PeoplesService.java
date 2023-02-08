@@ -15,23 +15,58 @@ public class PeoplesService {
 	private PeoplesRepository peoplesRepository;
 	
 	
-	public void getPeopleId(long n){
-		if(peoplesRepository.findById((long) 2) != null) {
-			System.out.println(peoplesRepository.findById((long) 2));
-		}
-		else {
-			System.out.println("없다 그런 사람");
-		}
+	
+	
+	
+	/*
+	 *  CRUD logic 구현을 우선으로 추후에 여러가지 비즈니스 로직들 운용하면 될듯
+	 */
+	
+	
+	//Create
+	public Peoples putPeople(String name) {
+		
+		Peoples newPeople = new Peoples(name);
+		return peoplesRepository.save(newPeople);
 	}
 	
 	
 	
+	//Read all
+	public List<Peoples> getPeoples() {
+		
+		return peoplesRepository.findAll();
+	}
+
+
 	
-	public void getAllPeoples(){
-		List<Peoples> peoples = peoplesRepository.findAll();		
-		for(int i = 0; i< peoples.size(); i++) {
-			System.out.println(peoples.get(i));
+	
+	//Update
+	public Peoples updateName(long id, String name) {
+		
+		Peoples people = peoplesRepository.getById(id);
+		
+		
+		if(people == null) {
+			System.out.println("공백");
 		}
 		
+		people.setName(name);
+		
+		return peoplesRepository.save(people);
+		
 	}
+
+
+	// Delete
+	public String deleteId(Long id) {
+		
+		peoplesRepository.deleteById(id);
+		
+		return "삭제 성공";
+	}
+	
+	
+	
+	
 }
