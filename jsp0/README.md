@@ -1,4 +1,4 @@
 # practice
 
-# Spirng boot - Jpa 연동 확인
-- https://velog.io/@sung-ik-je/JPA-%EA%B5%AC%ED%98%84-0
+## JSP 관련 
+- JSP 액션 태그 파악
