@@ -1,3 +1,2 @@
 # inflearn
->
-강의
+- Inflearn Java Play Ground 강의
