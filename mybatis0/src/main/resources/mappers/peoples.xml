@@ -4,6 +4,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 
 <mapper namespace="com.example.demo.repository.PeoplesMapper">
  <select id="findAll" parameterType = "com.example.demo.model.domain.PeoplesDTO" resultType="com.example.demo.model.domain.PeoplesDTO">
-  select * from peoples
+  select *
+  from peoples
  </select>
+
+ <insert id="putName" parameterType = "com.example.demo.model.domain.PeoplesDTO">
+  insert into peoples (name) values (#{name})
+ </insert>
+
+ <update id="updateName" parameterType = "com.example.demo.model.domain.PeoplesDTO">
+  update peoples set name = #{name} where id = #{id};
+ </update>
+
+
+ <delete id="deletePeople" parameterType = "com.example.demo.model.domain.PeoplesDTO">
+  delete from peoples where id = #{id}
+ </delete>
 </mapper>
