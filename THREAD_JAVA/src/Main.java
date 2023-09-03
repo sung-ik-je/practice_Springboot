@@ -1,17 +1,30 @@
-// Shift을(를) 두 번 눌러 전체 검색 대화상자를 열고 'show whitespaces'를 입력한 다음,
-// Enter를 누르세요. 그러면 코드 내에서 공백 문자를 확인할 수 있습니다.
+
 public class Main {
     public static void main(String[] args) {
-        // 캐럿을 강조 표시된 텍스트에 놓고 Alt+Enter을(를) 누르면
-        // IntelliJ IDEA의 수정 제안을 볼 수 있습니다.
-        System.out.printf("Hello and welcome!");
+        UseThreadClass t1 = new UseThreadClass();       // Thread 상속 Class로 Thread 선언
+        Thread t2 = new Thread(new UseRunnable());      // Runnable 확장 Class로 Thread 선언
 
-        // Shift+F10을(를) 누르거나 여백의 녹색 화살표 버튼을 클릭하여 코드를 실행합니다.
-        for (int i = 1; i <= 5; i++) {
-
-            // Shift+F9을(를) 눌러 코드 디버그를 시작합니다. 중단점을 하나 설정해 드렸습니다.
-            // 중단점을 더 추가하려면 언제든지 Ctrl+F8을(를) 누르세요.
-            System.out.println("i = " + i);
-        }
+        /**
+         * Thread 실행
+         * 실행 대기 상태에 있다가 본인의 차례일 때 실행된다(실행 대기 중인 쓰레드가 없는 경우)
+         * 한번 실행 한 쓰레드는 다시 실행될 수 없다(일회성, 한번 더 실행할 경우 새로운 쓰레드 생성 필요)
+         *
+         * 출력 =================================
+         * Thread : Thread-0
+         * Thread : Thread-0
+         * Thread : Thread-0
+         * Thread : Thread-0
+         * Thread : Thread-0
+         * Runnable : Thread-1
+         * Runnable : Thread-1
+         * Runnable : Thread-1
+         * Runnable : Thread-1
+         * Runnable : Thread-1
+         * ====================================
+         */
+        t1.start();
+        t2.start();
     }
 }
+
+
