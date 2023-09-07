@@ -35,7 +35,7 @@ class Thread9_1 extends Thread {
             System.out.println(i--);
             for(long x = 0; x<2500000000L; x++);
         }
-        
+
         // interrupted() 테스트용
 //        System.out.println("isInterrupted() : " + isInterrupted());
         System.out.println("카운트가 종료되었습니다.");
