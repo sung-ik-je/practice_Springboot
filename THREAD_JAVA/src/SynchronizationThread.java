@@ -33,6 +33,12 @@ class Account {
      *
      * method return 형태 앞에 synchronized 선언할 경우
      *      메서드 전체를 임계 영역으로 지정한 것이기에 하나의 쓰레드가 해당 작업을 마칠 때 까지 다른 스레드는 작업에 진행할 수 없다
+     *
+     * 해당 방법 외에도
+     * synchronized(){
+     *
+     * }
+     * 형태로 특정한 영역만 임계 영역으로 지정할 수 있다
      */
 //    public void withdraw(int money){
     public synchronized void withdraw(int money){
