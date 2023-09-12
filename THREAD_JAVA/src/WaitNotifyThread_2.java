@@ -8,6 +8,9 @@ import java.util.ArrayList;
  *      1, 2번 반복
  *      => 결론적으로 wait(), notify()의 사용으로 코드의 구조가 변경될 수 있었으며
  *          특정 쓰레드의 독점 현상을 방지하며 쓰레드를 운용할 수 있었다
+ *          
+ *          하지만 이 상황에서도 요리가 추가되는 경우도, 소비되는 경우도 있었는데 notify()의 경우는 waiting pool에 
+ *          있는 thread를 임의로 선택하기 때문에 랜덤하게 쓰레드가 선택된다
  */
 public class WaitNotifyThread_2 {
     public static void main(String[] args) throws Exception{
