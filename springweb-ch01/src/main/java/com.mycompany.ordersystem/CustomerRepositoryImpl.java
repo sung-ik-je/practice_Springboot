@@ -1,7 +1,11 @@
 package com.mycompany.ordersystem;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
+
+@Repository("customerRepository")
 public class CustomerRepositoryImpl implements CustomerRepository{
     private List<Customer> customers;
     public CustomerRepositoryImpl(){
@@ -31,7 +35,7 @@ public class CustomerRepositoryImpl implements CustomerRepository{
         Customer customer4 = new Customer();
         customer4.setId(4);
         customer4.setName("김사");
-        customer4.setAddress("대전");
+        customer4.setAddress("대전시");
         customer4.setEmail("kim4@gmail.com");
         customers.add(customer4);
 

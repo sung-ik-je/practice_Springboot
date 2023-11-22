@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>orderSystem</artifactId>
+    <artifactId>springweb-ch01</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -25,6 +25,17 @@
             <artifactId>spring-context</artifactId>
             <version>6.0.2</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-expression</artifactId>-->
+<!--            <version>6.0.2</version>-->
+<!--        </dependency>-->
     </dependencies>
+
+<!-- No goals have been specified for this build 오류 개선 -->
+    <build>
+        <defaultGoal>install</defaultGoal>
+    </build>
+
 
 </project>
