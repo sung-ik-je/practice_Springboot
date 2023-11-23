@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService{
+
+    // @Repository("customerRepository")가 선언되어 있는 CustomerRepositoryImpl or CustomerRepositoryImpl2 객체 생성
     public CustomerRepository customerRepository;
 
     public CustomerServiceImpl(CustomerRepository customerRepository){

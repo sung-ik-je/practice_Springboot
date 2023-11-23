@@ -9,6 +9,8 @@ import java.util.List;
 public class CustomerRepositoryImpl2 implements CustomerRepository{
 
     private List<Customer> customers;
+    
+    // 생성자, 객체 생성시 customers라는 Customer class type 리스트 생성
     public CustomerRepositoryImpl2(){
         customers = new ArrayList<>();
         Customer customer = new Customer();
