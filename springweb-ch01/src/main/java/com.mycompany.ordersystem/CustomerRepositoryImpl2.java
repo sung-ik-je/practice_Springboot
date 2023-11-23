@@ -5,45 +5,45 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Repository("customerRepository")
-public class CustomerRepositoryImpl implements CustomerRepository{
-    private List<Customer> customers;
-    public CustomerRepositoryImpl(){
-        customers = new ArrayList<>();
+@Repository("customerRepository")
+public class CustomerRepositoryImpl2 implements CustomerRepository{
 
+    private List<Customer> customers;
+    public CustomerRepositoryImpl2(){
+        customers = new ArrayList<>();
         Customer customer = new Customer();
         customer.setId(1);
-        customer.setName("김일");
+        customer.setName("이일");
         customer.setAddress("서울시");
-        customer.setEmail("kim1@gmail.com");
+        customer.setEmail("lee1@gmail.com");
         customers.add(customer);
 
         Customer customer2 = new Customer();
         customer2.setId(2);
-        customer2.setName("김이");
+        customer2.setName("이이");
         customer2.setAddress("부산시");
-        customer2.setEmail("kim2@gmail.com");
+        customer2.setEmail("lee2@gmail.com");
         customers.add(customer2);
 
         Customer customer3 = new Customer();
         customer3.setId(3);
-        customer3.setName("김삼");
+        customer3.setName("이삼");
         customer3.setAddress("인천시");
-        customer3.setEmail("kim3@gmail.com");
+        customer3.setEmail("lee3@gmail.com");
         customers.add(customer3);
 
         Customer customer4 = new Customer();
         customer4.setId(4);
-        customer4.setName("김사");
+        customer4.setName("이사");
         customer4.setAddress("대전시");
-        customer4.setEmail("kim4@gmail.com");
+        customer4.setEmail("lee4@gmail.com");
         customers.add(customer4);
 
         Customer customer5 = new Customer();
         customer5.setId(5);
-        customer5.setName("김오");
+        customer5.setName("이오");
         customer5.setAddress("대구시");
-        customer5.setEmail("kim5@gmail.com");
+        customer5.setEmail("lee5@gmail.com");
         customers.add(customer5);
     }
     @Override
@@ -57,6 +57,7 @@ public class CustomerRepositoryImpl implements CustomerRepository{
 
     @Override
     public List<Customer> findAll() {
+        System.out.println(customers);
         return customers;
     }
 
