@@ -14,7 +14,10 @@ public class Main {
      * 
      * repostioryImpl에서 repostioryImpl2로 교체하면서 가능했던 것은 repostioryImpl class를 수정하지 않고 repostioryImpl2를 생성함으로써 
      * 다른 용도의 작업이 가능했다는 것
-     *      개발자 입장에선 새로운 구현 클래스를 생성하고 @Repository 애터테이션을 변경함으로 새로운 작업을 진행가능하게 된다
+     *      개발자 입장에선 새로운 구현 클래스를 생성하고 @Repository 애터테이션을 변경함으로 새로운 작업을 진행가능하게 된다 : 이는 Repository 인터페이스를 상속받는 class를 변경하는 것 자체로 main 메서드의 결과값이 달라지는 것을 의미
+     *          (repositoryImpl1 => repositoryImpl2의 변화는 생성자만 변하고 그 외 메서드들은 동일), interface 구조를 사용하며 class의 변화의 유연하게 소프트웨어 확장 가능
+     *          이는 main 입장에서 service interface를 구현한 serviceImpl 객체를 생성해 repository interface의 메서드들을 repositoryImpl1,2를 통해 사용한다고 보면 된다
+     *          main의 입장에서는 interface를 구현한 serviceImpl, repositoryImpl 클래스들은 각 상속 받은 interface들의 메서드를 사용할 수 있는 매개체 역할
      *      프레임워크 입장에선 똑같이 @Repository 애너테이션이 적용된 클래스에 객체를 사용하게끔 도와줌(service 구현체에 repositoryImpl or repositoryImpl2 구현체를 사용하게끔 해주는 것처럼)
      *              => 이 로직은 결국 의존성 주입을 이용한 방법이라는 것(프레임워크는 애너테이션을 통해 사용되는 클래스(=객체)를 정의시켜줌)
      *
