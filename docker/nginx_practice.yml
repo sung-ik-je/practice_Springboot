@@ -1,0 +1,11 @@
+version: '2'
+services:
+  web:
+    image: nginx:latest
+    volumes:
+    - ./nginx.conf:/etc/nginx/templates/nginx.conf
+    ports:
+    - "50000:80"
+    environment:
+    - NGINX_HOST=sirosiro.com
+    - NGINX_PORT=80
