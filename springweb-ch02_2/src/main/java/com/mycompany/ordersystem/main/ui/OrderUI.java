@@ -8,6 +8,7 @@ import com.mycompany.ordersystem.services.CustomerService;
 import com.mycompany.ordersystem.services.InventoryService;
 import com.mycompany.ordersystem.services.OrderService;
 import com.mycompany.ordersystem.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class OrderUI {
     private InventoryService inventoryService;
     private OrderService orderService;
 
+    @Autowired
     public OrderUI(OrderService orderService, CustomerService customerService, ProductService productService, InventoryService inventoryService) {
         this.orderService = orderService;
         this.customerService = customerService;

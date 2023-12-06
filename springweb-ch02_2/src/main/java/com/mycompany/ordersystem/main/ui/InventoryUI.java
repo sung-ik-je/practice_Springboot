@@ -4,6 +4,7 @@ import com.mycompany.ordersystem.domain.Inventory;
 import com.mycompany.ordersystem.domain.Product;
 import com.mycompany.ordersystem.services.InventoryService;
 import com.mycompany.ordersystem.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -14,6 +15,8 @@ public class InventoryUI {
     private Scanner scanner;
     private InventoryService inventoryService;
     private ProductService productService;
+
+    @Autowired
     public InventoryUI(InventoryService inventoryService, ProductService productService) {
         this.inventoryService = inventoryService;
         this.productService = productService;

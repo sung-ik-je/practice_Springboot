@@ -5,6 +5,7 @@ import com.mycompany.ordersystem.domain.Product;
 import com.mycompany.ordersystem.inventory.repository.InventoryRepository;
 import com.mycompany.ordersystem.services.InventoryService;
 import com.mycompany.ordersystem.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class InventoryServiceImpl implements InventoryService {
     private InventoryRepository inventoryRepository;
     private ProductService productService;
 
+    @Autowired
     public InventoryServiceImpl(InventoryRepository inventoryRepository, ProductService productService) {
         this.inventoryRepository = inventoryRepository;
         this.productService = productService;

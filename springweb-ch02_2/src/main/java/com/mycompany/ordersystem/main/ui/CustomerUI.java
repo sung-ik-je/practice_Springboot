@@ -2,6 +2,7 @@ package com.mycompany.ordersystem.main.ui;
 
 import com.mycompany.ordersystem.domain.Customer;
 import com.mycompany.ordersystem.services.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
@@ -13,6 +14,8 @@ import java.util.Scanner;
 public class CustomerUI {
     private Scanner scanner;
     private CustomerService customerService;
+
+    @Autowired
     public CustomerUI(CustomerService customerService) {
         this.customerService = customerService;
         scanner = new Scanner(System.in);

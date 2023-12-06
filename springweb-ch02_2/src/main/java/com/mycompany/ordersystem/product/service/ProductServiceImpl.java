@@ -3,6 +3,7 @@ package com.mycompany.ordersystem.product.service;
 import com.mycompany.ordersystem.domain.Product;
 import com.mycompany.ordersystem.product.repository.ProductRepository;
 import com.mycompany.ordersystem.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
 
+    @Autowired
     public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
