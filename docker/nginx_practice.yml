@@ -1,11 +1,9 @@
+### Exam 1. nginx 컨테이너 만들기, docker-compose 이용
 version: '2'
 services:
   web:
     image: nginx:latest
     volumes:
-    - ./nginx.conf:/etc/nginx/templates/nginx.conf
+     - ./index.html:/usr/share/nginx/html/index.html  # index.html 경로
     ports:
-    - "50000:80"
-    environment:
-    - NGINX_HOST=sirosiro.com
-    - NGINX_PORT=80
+     - "50000:80"

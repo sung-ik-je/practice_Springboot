@@ -20,4 +20,4 @@ services:
   environment:
     WORDPRESS_DB_HOST: db:3306
     WORDPRESS_DB_PASSWORD: wordpress
-    WORDPRESS_DB_USER: wordpress    // 추가해야 wordpress <=> db connect error 발생 안함
+    WORDPRESS_DB_USER: wordpress    # 추가해야 wordpress <=> db connect error 발생 안함
