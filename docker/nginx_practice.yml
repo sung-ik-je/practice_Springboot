@@ -4,6 +4,6 @@ services:
   web:
     image: nginx:latest
     volumes:
-     - ./index.html:/usr/share/nginx/html/index.html  # index.html 경로
+     - ./index.html:/usr/share/nginx/html/index.html  # 좌측 서버 내 index.html 경로
     ports:
      - "50000:80"
