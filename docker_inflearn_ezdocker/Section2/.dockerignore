@@ -1,0 +1,2 @@
+/* 현재 로컬에 있는 node_modules은 복사 안되게 */
+node_modules*/
