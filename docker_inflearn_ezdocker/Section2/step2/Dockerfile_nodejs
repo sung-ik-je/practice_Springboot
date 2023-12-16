@@ -1,0 +1,26 @@
+FROM node:16
+
+'''
+. = 현재 경로의 폴더들을 만들어지는 컨테이너 /usr/share에 복사
+'''
+COPY . /usr/share
+
+'''
+파일 복사 이후이기에 /hellonode로 이동해 실행
+'''
+WORKDIR /usr/share
+RUN npm install
+
+EXPOSE 60000
+CMD node server.js
+
+
+'''
+이미지 생성 명령어
+docker build -t hellonode .
+
+실행 명령어
+docker run -p 60000:8080 hellonode
+
+localhost:60000으로 접속 시 server.js 소스 기반 nginx 접할 수 있다
+'''

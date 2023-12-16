@@ -1,0 +1,17 @@
+
+# 이미지 만드는 명령어
+FROM nginx:latest
+
+# 파일 복사
+    # 왼쪽이 local 경로 및 파일, 오른쪽이 컨테이너 내 경로
+COPY index.html /usr/share/nginx/html/index.html
+
+'''
+실행 명령어(CMD 상에서 실행해야됨), local:50000 <=> nginx 기본 서버 연결한다는 의미
+docker run -p 50000:80 nginx
+
+
+정답 코드
+$ docker build -t lab02/exam1 .
+docker run -d --rm  -p 50000:80 lab02/exam1
+'''
