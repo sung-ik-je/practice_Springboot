@@ -23,4 +23,3 @@ docker run -p 60000:8080 hellonode
 
 # 하단 명령어(Dockerfile 기반 이미지 빌드 및 실행) 진행 시 
 # localhost:60000으로 접속 시 server.js 소스 기반 nginx 접할 수 있다
-# 이 때(build 할 때) 생기는 .dockerignore file 삭제하면 안된다(설정 파일이기 때문)

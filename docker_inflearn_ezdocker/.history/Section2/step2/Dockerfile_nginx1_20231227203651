@@ -1,3 +1,5 @@
+# 개인 답
+
 # 이미지 만드는 명령어
 FROM nginx:latest
 

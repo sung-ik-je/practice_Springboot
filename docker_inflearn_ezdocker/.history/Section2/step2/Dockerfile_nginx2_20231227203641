@@ -1,0 +1,9 @@
+# 강의 답 
+
+# 이미지 생성 명령어
+docker build -t hellonode .
+
+# 실행 명령어
+docker run -p 60000:8080 hellonode
+
+# localhost:60000으로 접속 시 server.js 소스 기반 nginx 접할 수 있다

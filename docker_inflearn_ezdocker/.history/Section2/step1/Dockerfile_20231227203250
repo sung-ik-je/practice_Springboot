@@ -15,14 +15,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
 COPY . /usr/src/app
 
 
-# 3. Nodejs 패키지 설치
-    # WORKDIR : 해당 경로로 이동
+# 3. Nodejs 패키지 설치, (해당 경로로 이동)
 WORKDIR /usr/src/app 
 RUN npm install
 
 
-# 4. WEB 서버 실행 
-    # EXPOSE : 오픈되는 포트 정보(Listen 포트 정의)
-    # CMD : 컨테이너 기본 실행 명령어
+# 4. WEB 서버 실행 (Listen 포트 정의)
 EXPOSE 3000
 CMD node app.js
