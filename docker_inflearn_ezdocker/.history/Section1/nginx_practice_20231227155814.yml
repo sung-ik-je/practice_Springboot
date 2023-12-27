@@ -3,7 +3,7 @@ version: '2'
 services:
   web:
     image: nginx:latest
-    volumes:  # -v option으로 호스트와 컨테이너의 디렉토리를 연결
+    volumes:
      - ./index.html:/usr/share/nginx/html/index.html  # 좌측 서버 내 index.html 경로
     ports:
      - "50000:80"
