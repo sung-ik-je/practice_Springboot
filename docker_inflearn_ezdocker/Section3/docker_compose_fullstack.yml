@@ -1,0 +1,21 @@
+version: '3'
+
+services:   # 여기서 front, back 같은 포트 사용
+  frontend:
+    image: subicura/guestbook-frontend:latest
+    restart: always
+    ports:
+      - "62000:8000"
+    environment:
+      PORT: 8000
+      GUESTBOOK_API_ADDR: backend:8000
+
+  backend:
+    image: subicura/guestbook-backend:latest
+    restart: always
+    environment:
+      PORT: 8000
+      GUESTBOOK_DB_ADDR: mongodb:27017
+
+  mongodb:
+    image: mongo:4
