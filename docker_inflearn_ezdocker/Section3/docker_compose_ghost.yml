@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  ghost:
+    image: ghost
+    restart: always
+    ports:
+      - "60000:2368"
+    volumes:
+      - ./ghost_data:/var/lib/ghost/content   # 좌측은 ghost 관련 데이터 현재 로컬에 마운트 할 위치
+    environment:    # https://ghost.org/docs/config/#configuration-options 참고
+      url: http://localhost:60000   # /ghost 주소로 관리자 페이지 접근 가능
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: root
+      database__connection__password: example
+      database__connection__database: ghost
+
+  db:
+    image: mariadb:10.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
