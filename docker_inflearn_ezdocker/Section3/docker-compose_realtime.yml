@@ -1,3 +1,9 @@
+# 강의에서 제공해준 코드
+  # 그대로 진행 시 정상 작동 X
+  # 프론트 화면은 정상적으로 뜸, hasura console도 정상적으로 작동하며 테이블 생성되어 있지만 아이디로 로그인이 안되는 문제
+  # 프론트에서 요청이 제대로 들어가지 않는 것 같다는 생각에 콘솔 창을 확인하며 요청 url을 찾을 수 없다는 에러를 확인하고 
+  # git에서 내려받은 frontend 코드에서 hasura 관련 url을 localhost로 수정
+version: "3"
 services:
   postgres:
     image: postgres:15
@@ -6,9 +12,12 @@ services:
     - db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
-
+      # POSTGRES_USER: postgres
+      # POSTGRES_PORT: 5432
+      # POSTGRES_HOST: postgres
+      # POSTGRES_DBNAME: postgres
   graphql-engine:
-    image: hasura/graphql-engine:v2.23.0.cli-migrations-v3
+    image: hasura/graphql-engine:v2.36.0
     ports:
     - "60004:8080"
     depends_on:
@@ -17,6 +26,7 @@ services:
     environment:
       ## postgres database to store Hasura metadata
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
       ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
       PG_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
@@ -25,7 +35,6 @@ services:
     volumes:
     - ./hasura/metadata:/hasura-metadata
     - ./hasura/migrations:/hasura-migrations
-    
   frontend:
     build:
       dockerfile: ./Dockerfile
