@@ -1,18 +1,16 @@
-function oneMore() {
-    console.log('one more')
-}
+const candyMachine = {
+    status: {
+        name: 'node',
+        count: 5,
+    },
+    getCandy() {
+        this.status.count--;
+        return this.status.count;
+    },
+};
 
-function run() {
-    console.log('run run');
-    setTimeout(() => {
-        console.log('wow');
-    }, 0)
+const { status: { count }} = candyMachine;
 
-    new Promise((resolve) => {
-        resolve('hi');
-    })
-    .then(console.log);
-    oneMore()
-}
+console.log(count)
 
-setTimeout(run, 5000);
+console.log(candyMachine.getCandy())

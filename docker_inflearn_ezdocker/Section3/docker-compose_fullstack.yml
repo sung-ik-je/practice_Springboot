@@ -1,6 +1,7 @@
 version: '3'
 
-services:   # 여기서 front, back 같은 포트 사용
+services:   # 여기서 listen port를 8000으로 사용한 것, front, back 같은 포트 사용한다는 것이 X
+            # route 규칙에 8000 호출 시 front로 가는 설정이 존재
   frontend:
     image: subicura/guestbook-frontend:latest
     restart: always
