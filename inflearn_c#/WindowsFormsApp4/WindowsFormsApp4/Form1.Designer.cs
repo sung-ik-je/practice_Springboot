@@ -43,10 +43,9 @@
             this.ButtonSix = new System.Windows.Forms.Button();
             this.ButtonFive = new System.Windows.Forms.Button();
             this.ButtonFour = new System.Windows.Forms.Button();
-            this.ButtonDiv = new System.Windows.Forms.Button();
             this.ButtonEight = new System.Windows.Forms.Button();
             this.ButtonSeven = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ButtonDiv = new System.Windows.Forms.Button();
             this.ButtonResult = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -82,9 +81,9 @@
             this.tableLayoutPanel1.Controls.Add(this.ButtonSix, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.ButtonFive, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.ButtonFour, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.ButtonDiv, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.ButtonEight, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.ButtonSeven, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ButtonDiv, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 47);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -93,7 +92,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(428, 378);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(428, 364);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // ButtonNine
@@ -110,7 +109,7 @@
             // ButtonPlus
             // 
             this.ButtonPlus.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonPlus.Location = new System.Drawing.Point(324, 285);
+            this.ButtonPlus.Location = new System.Drawing.Point(324, 276);
             this.ButtonPlus.Name = "ButtonPlus";
             this.ButtonPlus.Size = new System.Drawing.Size(98, 79);
             this.ButtonPlus.TabIndex = 15;
@@ -121,7 +120,7 @@
             // ButtonDot
             // 
             this.ButtonDot.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonDot.Location = new System.Drawing.Point(217, 285);
+            this.ButtonDot.Location = new System.Drawing.Point(217, 276);
             this.ButtonDot.Name = "ButtonDot";
             this.ButtonDot.Size = new System.Drawing.Size(98, 79);
             this.ButtonDot.TabIndex = 14;
@@ -132,7 +131,7 @@
             // ButtonZero
             // 
             this.ButtonZero.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonZero.Location = new System.Drawing.Point(110, 285);
+            this.ButtonZero.Location = new System.Drawing.Point(110, 276);
             this.ButtonZero.Name = "ButtonZero";
             this.ButtonZero.Size = new System.Drawing.Size(98, 79);
             this.ButtonZero.TabIndex = 13;
@@ -143,7 +142,7 @@
             // ButtonAc
             // 
             this.ButtonAc.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonAc.Location = new System.Drawing.Point(3, 285);
+            this.ButtonAc.Location = new System.Drawing.Point(3, 276);
             this.ButtonAc.Name = "ButtonAc";
             this.ButtonAc.Size = new System.Drawing.Size(98, 79);
             this.ButtonAc.TabIndex = 12;
@@ -154,7 +153,7 @@
             // ButtonMinus
             // 
             this.ButtonMinus.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonMinus.Location = new System.Drawing.Point(324, 191);
+            this.ButtonMinus.Location = new System.Drawing.Point(324, 185);
             this.ButtonMinus.Name = "ButtonMinus";
             this.ButtonMinus.Size = new System.Drawing.Size(98, 79);
             this.ButtonMinus.TabIndex = 11;
@@ -165,7 +164,7 @@
             // ButtonThree
             // 
             this.ButtonThree.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonThree.Location = new System.Drawing.Point(217, 191);
+            this.ButtonThree.Location = new System.Drawing.Point(217, 185);
             this.ButtonThree.Name = "ButtonThree";
             this.ButtonThree.Size = new System.Drawing.Size(98, 79);
             this.ButtonThree.TabIndex = 10;
@@ -176,7 +175,7 @@
             // ButtonTwo
             // 
             this.ButtonTwo.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonTwo.Location = new System.Drawing.Point(110, 191);
+            this.ButtonTwo.Location = new System.Drawing.Point(110, 185);
             this.ButtonTwo.Name = "ButtonTwo";
             this.ButtonTwo.Size = new System.Drawing.Size(98, 79);
             this.ButtonTwo.TabIndex = 9;
@@ -187,7 +186,7 @@
             // ButtonOne
             // 
             this.ButtonOne.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonOne.Location = new System.Drawing.Point(3, 191);
+            this.ButtonOne.Location = new System.Drawing.Point(3, 185);
             this.ButtonOne.Name = "ButtonOne";
             this.ButtonOne.Size = new System.Drawing.Size(98, 79);
             this.ButtonOne.TabIndex = 8;
@@ -198,7 +197,7 @@
             // ButtonMulti
             // 
             this.ButtonMulti.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonMulti.Location = new System.Drawing.Point(324, 97);
+            this.ButtonMulti.Location = new System.Drawing.Point(324, 94);
             this.ButtonMulti.Name = "ButtonMulti";
             this.ButtonMulti.Size = new System.Drawing.Size(98, 79);
             this.ButtonMulti.TabIndex = 7;
@@ -209,7 +208,7 @@
             // ButtonSix
             // 
             this.ButtonSix.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonSix.Location = new System.Drawing.Point(217, 97);
+            this.ButtonSix.Location = new System.Drawing.Point(217, 94);
             this.ButtonSix.Name = "ButtonSix";
             this.ButtonSix.Size = new System.Drawing.Size(98, 79);
             this.ButtonSix.TabIndex = 6;
@@ -220,7 +219,7 @@
             // ButtonFive
             // 
             this.ButtonFive.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonFive.Location = new System.Drawing.Point(110, 97);
+            this.ButtonFive.Location = new System.Drawing.Point(110, 94);
             this.ButtonFive.Name = "ButtonFive";
             this.ButtonFive.Size = new System.Drawing.Size(98, 79);
             this.ButtonFive.TabIndex = 5;
@@ -231,24 +230,13 @@
             // ButtonFour
             // 
             this.ButtonFour.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonFour.Location = new System.Drawing.Point(3, 97);
+            this.ButtonFour.Location = new System.Drawing.Point(3, 94);
             this.ButtonFour.Name = "ButtonFour";
             this.ButtonFour.Size = new System.Drawing.Size(98, 79);
             this.ButtonFour.TabIndex = 4;
             this.ButtonFour.Text = "4";
             this.ButtonFour.UseVisualStyleBackColor = true;
             this.ButtonFour.Click += new System.EventHandler(this.ButtonFour_Click);
-            // 
-            // ButtonDiv
-            // 
-            this.ButtonDiv.Font = new System.Drawing.Font("굴림", 30F);
-            this.ButtonDiv.Location = new System.Drawing.Point(324, 3);
-            this.ButtonDiv.Name = "ButtonDiv";
-            this.ButtonDiv.Size = new System.Drawing.Size(98, 79);
-            this.ButtonDiv.TabIndex = 3;
-            this.ButtonDiv.Text = "÷";
-            this.ButtonDiv.UseVisualStyleBackColor = true;
-            this.ButtonDiv.Click += new System.EventHandler(this.ButtonDiv_Click);
             // 
             // ButtonEight
             // 
@@ -272,15 +260,16 @@
             this.ButtonSeven.UseVisualStyleBackColor = true;
             this.ButtonSeven.Click += new System.EventHandler(this.ButtonSeven_Click);
             // 
-            // button3
+            // ButtonDiv
             // 
-            this.button3.Font = new System.Drawing.Font("굴림", 30F);
-            this.button3.Location = new System.Drawing.Point(85, 80);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 76);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "9";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ButtonDiv.Font = new System.Drawing.Font("굴림", 30F);
+            this.ButtonDiv.Location = new System.Drawing.Point(324, 3);
+            this.ButtonDiv.Name = "ButtonDiv";
+            this.ButtonDiv.Size = new System.Drawing.Size(98, 79);
+            this.ButtonDiv.TabIndex = 3;
+            this.ButtonDiv.Text = "÷";
+            this.ButtonDiv.UseVisualStyleBackColor = true;
+            this.ButtonDiv.Click += new System.EventHandler(this.ButtonDiv_Click);
             // 
             // ButtonResult
             // 
@@ -302,7 +291,6 @@
             this.Controls.Add(this.ButtonResult);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.display);
-            this.Controls.Add(this.button3);
             this.Name = "Form1";
             this.Text = "익산기";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -328,7 +316,6 @@
         private System.Windows.Forms.Button ButtonFive;
         private System.Windows.Forms.Button ButtonFour;
         private System.Windows.Forms.Button ButtonDiv;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button ButtonEight;
         private System.Windows.Forms.Button ButtonResult;
         private System.Windows.Forms.Button ButtonNine;

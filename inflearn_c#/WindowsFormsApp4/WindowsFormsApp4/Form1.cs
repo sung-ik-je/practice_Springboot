@@ -31,6 +31,7 @@ namespace WindowsFormsApp4
         Boolean operatorChangeFlag = false;
         int firstOperand = 0;
         int secondOperand = 0;
+        Operators beforeOperator = Operators.None;
 
         private void ButtonSeven_Click(object sender, EventArgs e)
         {
@@ -41,7 +42,7 @@ namespace WindowsFormsApp4
             }
             string strNumber = display.Text += "7";
             int intNumber = Int32.Parse(strNumber);
-            display.Text = intNumber.ToString();   
+            display.Text = intNumber.ToString();
         }
 
         private void ButtonEight_Click(object sender, EventArgs e)
@@ -168,6 +169,26 @@ namespace WindowsFormsApp4
 
         private void ButtonPlus_Click(object sender, EventArgs e)
         {
+            if (currentOperator != Operators.None)
+            {
+                if (currentOperator == Operators.Add)
+                {
+                    firstOperand += Int32.Parse(display.Text);
+                }
+                else if (currentOperator == Operators.Subtract)
+                {
+                    firstOperand -= Int32.Parse(display.Text);
+                }
+                else if (currentOperator == Operators.Multiply)
+                {
+                    firstOperand *= Int32.Parse(display.Text);
+                }
+                else
+                {
+                    firstOperand /= Int32.Parse(display.Text);
+                }
+                display.Text = firstOperand.ToString();
+            }
             firstOperand = Int32.Parse(display.Text);
             currentOperator = Operators.Add;
             operatorChangeFlag = true;
@@ -175,6 +196,26 @@ namespace WindowsFormsApp4
 
         private void ButtonMinus_Click(object sender, EventArgs e)
         {
+            if (currentOperator != Operators.None)
+            {
+                if (currentOperator == Operators.Add)
+                {
+                    firstOperand += Int32.Parse(display.Text);
+                }
+                else if (currentOperator == Operators.Subtract)
+                {
+                    firstOperand -= Int32.Parse(display.Text);
+                }
+                else if (currentOperator == Operators.Multiply)
+                {
+                    firstOperand *= Int32.Parse(display.Text);
+                }
+                else
+                {
+                    firstOperand /= Int32.Parse(display.Text);
+                }
+                display.Text = firstOperand.ToString();
+            }
             firstOperand = Int32.Parse(display.Text);
             currentOperator = Operators.Subtract;
             operatorChangeFlag = true;
@@ -182,6 +223,26 @@ namespace WindowsFormsApp4
 
         private void ButtonMulti_Click(object sender, EventArgs e)
         {
+            if (currentOperator != Operators.None)
+            {
+                if (currentOperator == Operators.Add)
+                {
+                    firstOperand += Int32.Parse(display.Text);
+                }
+                else if (currentOperator == Operators.Subtract)
+                {
+                    firstOperand -= Int32.Parse(display.Text);
+                }
+                else if (currentOperator == Operators.Multiply)
+                {
+                    firstOperand *= Int32.Parse(display.Text);
+                }
+                else
+                {
+                    firstOperand /= Int32.Parse(display.Text);
+                }
+                display.Text = firstOperand.ToString();
+            }
             firstOperand = Int32.Parse(display.Text);
             currentOperator = Operators.Multiply;
             operatorChangeFlag = true;
@@ -189,6 +250,26 @@ namespace WindowsFormsApp4
 
         private void ButtonDiv_Click(object sender, EventArgs e)
         {
+            if (currentOperator != Operators.None)
+            {
+                if (currentOperator == Operators.Add)
+                {
+                    firstOperand += Int32.Parse(display.Text);
+                }
+                else if (currentOperator == Operators.Subtract)
+                {
+                    firstOperand -= Int32.Parse(display.Text);
+                }
+                else if (currentOperator == Operators.Multiply)
+                {
+                    firstOperand *= Int32.Parse(display.Text);
+                }
+                else
+                {
+                    firstOperand /= Int32.Parse(display.Text);
+                }
+                display.Text = firstOperand.ToString();
+            }
             firstOperand = Int32.Parse(display.Text);
             currentOperator = Operators.Divide;
             operatorChangeFlag = true;
