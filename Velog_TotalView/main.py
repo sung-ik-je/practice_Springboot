@@ -25,11 +25,10 @@ addPostId('pj', post_id)
 
 
 '''
+# post id로 조회수 request
+# ref : https://velog.io/@hamham/내-velog-총-조회수-확인하기#1-조회수-데이터를-받아오는-api-확인하기
+# 위에 python 코드의 결과 리스트를 postIdArray에 넣고 브라우저 콘솔에서 진행
 
-'''
-post id로 조회수 request
-ref : https://velog.io/@hamham/내-velog-총-조회수-확인하기#1-조회수-데이터를-받아오는-api-확인하기
-'''
 const postIdArray = []
 
 const fetchPromises = postIdArray.map(postId => {
