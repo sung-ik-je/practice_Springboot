@@ -13,7 +13,7 @@ let AppService = class AppService {
         return 'Hello World!';
     }
     printThis() {
-        return "5000번 Port";
+        return "2000번 Port";
     }
 };
 exports.AppService = AppService;
