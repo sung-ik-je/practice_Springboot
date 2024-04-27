@@ -25,7 +25,13 @@ io.on('connection', (socket) => {
 // 수신 된 메시지 출력
 io.on('connection', (socket) => {
   socket.on('chat message', (msg) => {
-    console.log('received');
+    /**
+     * client ip address는 handshake 객체로 접근
+     * handshake는 server <-> client 연결되는 작업을 의미
+     */
+    const ipAddress = socket.handshake.address;
+  
+    console.log('client ip : ', ipAddress);
     console.log('chat message: ' + msg);
   });
 });
