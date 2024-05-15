@@ -1,9 +1,15 @@
+// lib
 import { Controller, Get, Req, Res, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Request, Response } from 'express';
 
+// code
+import { AuthService } from './auth.service';
+
 @Controller('auth')
 export class AuthController {
+  constructor(private readonly authService: AuthService) {}
+
   @Get('github')
   @UseGuards(AuthGuard('github'))
   async githubLogin() {
@@ -15,19 +21,22 @@ export class AuthController {
   async githubLoginCallback(@Req() req: Request, @Res() res: Response) {
     // 성공적인 인증 후 리디렉션
     console.log("인증 성공");
-    console.log(req);
-    console.log("==================================================");
-    console.log(res);
+    // console.log(req);
+    // console.log("==================================================");
+    // console.log(res);
+    console.log("auth check : ", req.isAuthenticated());
+    await this.authService.validateUser(req.user); // 사용자 프로필을 저장
     res.redirect('/auth/github/profile');
   }
 
   @Get('github/profile')
   getProfile(@Req() req: Request, @Res() res: Response) {
-    if (!req.isAuthenticated()) {
+    const userProfile = this.authService.getUserProfile(); // 저장된 사용자 프로필을 가져옴
+    if (!userProfile) {
       console.log('come in')
       return res.redirect('/');
     }
-    res.send(`<h1>Hello ${req.user}</h1><a href="/auth/logout">Logout</a>`);
+    res.send(`<h1>Hello ${JSON.stringify(userProfile)}</h1><a href="/auth/logout">Logout</a>`);
   }
 
   @Get('logout')

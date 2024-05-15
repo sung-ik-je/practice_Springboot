@@ -15,22 +15,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const common_1 = require("@nestjs/common");
 const passport_1 = require("@nestjs/passport");
+const auth_service_1 = require("./auth.service");
 let AuthController = class AuthController {
+    constructor(authService) {
+        this.authService = authService;
+    }
     async githubLogin() {
     }
     async githubLoginCallback(req, res) {
         console.log("인증 성공");
-        console.log(req);
-        console.log("==================================================");
-        console.log(res);
+        console.log("auth check : ", req.isAuthenticated());
+        await this.authService.validateUser(req.user);
         res.redirect('/auth/github/profile');
     }
     getProfile(req, res) {
-        if (!req.isAuthenticated()) {
+        const userProfile = this.authService.getUserProfile();
+        if (!userProfile) {
             console.log('come in');
             return res.redirect('/');
         }
-        res.send(`<h1>Hello ${req.user}</h1><a href="/auth/logout">Logout</a>`);
+        res.send(`<h1>Hello ${JSON.stringify(userProfile)}</h1><a href="/auth/logout">Logout</a>`);
     }
     logout(req, res) {
         req.logout((err) => {
@@ -78,6 +82,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "logout", null);
 exports.AuthController = AuthController = __decorate([
-    (0, common_1.Controller)('auth')
+    (0, common_1.Controller)('auth'),
+    __metadata("design:paramtypes", [auth_service_1.AuthService])
 ], AuthController);
 //# sourceMappingURL=auth.controller.js.map

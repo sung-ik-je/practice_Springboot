@@ -10,7 +10,11 @@ exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 let AuthService = class AuthService {
     async validateUser(profile) {
+        this.userProfile = profile;
         return profile;
+    }
+    getUserProfile() {
+        return this.userProfile;
     }
 };
 exports.AuthService = AuthService;
