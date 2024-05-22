@@ -16,6 +16,9 @@ let AuthService = class AuthService {
     getUserProfile() {
         return this.userProfile;
     }
+    logoutUserProfile() {
+        this.userProfile = undefined;
+    }
 };
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([

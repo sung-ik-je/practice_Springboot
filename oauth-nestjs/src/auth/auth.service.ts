@@ -15,4 +15,8 @@ export class AuthService {
     // 전역 변수에 저장된 사용자 프로필 반환
     return this.userProfile;
   }
+
+  logoutUserProfile() {
+    this.userProfile = undefined;
+  }
 }

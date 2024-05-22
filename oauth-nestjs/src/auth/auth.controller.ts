@@ -20,13 +20,10 @@ export class AuthController {
   @UseGuards(AuthGuard('github'))
   async githubLoginCallback(@Req() req: Request, @Res() res: Response) {
     // 성공적인 인증 후 리디렉션
-    console.log("인증 성공");
-    // console.log(req);
-    // console.log("==================================================");
-    // console.log(res);
-    console.log("auth check : ", req.isAuthenticated());
+    const user = req.user;
+    // console.log("auth check : ", req.isAuthenticated());
     await this.authService.validateUser(req.user); // 사용자 프로필을 저장
-    res.redirect('/auth/github/profile');
+    res.redirect('/auth/github/profile');     // res의 의미를 잘 생각해야 된다, 현재 함수의 응답으로 redirect를 한다는거지 현재 함수의 요청을 redirect url의 request로 보낸다는 것이 아님
   }
 
   @Get('github/profile')
@@ -37,9 +34,7 @@ export class AuthController {
       return res.redirect('/');
     }
     // res.send(`<h1>Hello ${JSON.stringify(userProfile.displayName)}</h1><a href="/auth/logout">Logout</a>`);
-    res.send(`<h1>Hello ${userProfile.displayName}</h1><a href="/auth/logout">Logout</a>`);
-    res.send('<h1>보소 18<h1>');
-    console.log(userProfile);
+    res.send(`<h1>Hello v2 ${userProfile.displayName}</h1><a href="/auth/logout">Logout</a>`);
   }
 
   @Get('logout')
@@ -48,8 +43,9 @@ export class AuthController {
       if (err) {
         console.error('Error logging out:', err);
       } else {
-        console.log('Logged out successfully.');
         // 로그아웃 후 수행할 작업을 여기에 추가할 수 있습니다.
+        this.authService.logoutUserProfile();
+        console.log('Logged out successfully.');
       }
     });
     res.redirect('/');

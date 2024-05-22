@@ -23,8 +23,7 @@ let AuthController = class AuthController {
     async githubLogin() {
     }
     async githubLoginCallback(req, res) {
-        console.log("인증 성공");
-        console.log("auth check : ", req.isAuthenticated());
+        const user = req.user;
         await this.authService.validateUser(req.user);
         res.redirect('/auth/github/profile');
     }
@@ -34,9 +33,7 @@ let AuthController = class AuthController {
             console.log('come in');
             return res.redirect('/');
         }
-        res.send(`<h1>Hello ${userProfile.displayName}</h1><a href="/auth/logout">Logout</a>`);
-        res.send('<h1>보소 18<h1>');
-        console.log(userProfile);
+        res.send(`<h1>Hello v2 ${userProfile.displayName}</h1><a href="/auth/logout">Logout</a>`);
     }
     logout(req, res) {
         req.logout((err) => {
@@ -47,6 +44,7 @@ let AuthController = class AuthController {
                 console.log('Logged out successfully.');
             }
         });
+        this.authService.logoutUserProfile();
         res.redirect('/');
     }
 };
