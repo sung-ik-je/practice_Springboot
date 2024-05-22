@@ -34,7 +34,9 @@ let AuthController = class AuthController {
             console.log('come in');
             return res.redirect('/');
         }
-        res.send(`<h1>Hello ${JSON.stringify(userProfile)}</h1><a href="/auth/logout">Logout</a>`);
+        res.send(`<h1>Hello ${userProfile.displayName}</h1><a href="/auth/logout">Logout</a>`);
+        res.send('<h1>보소 18<h1>');
+        console.log(userProfile);
     }
     logout(req, res) {
         req.logout((err) => {
