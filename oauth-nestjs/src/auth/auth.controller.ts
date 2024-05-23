@@ -21,6 +21,7 @@ export class AuthController {
   async githubLoginCallback(@Req() req: Request, @Res() res: Response) {
     // 성공적인 인증 후 리디렉션
     const user = req.user;
+    console.log(req);
     // console.log("auth check : ", req.isAuthenticated());
     await this.authService.validateUser(req.user); // 사용자 프로필을 저장
     res.redirect('/auth/github/profile');     // res의 의미를 잘 생각해야 된다, 현재 함수의 응답으로 redirect를 한다는거지 현재 함수의 요청을 redirect url의 request로 보낸다는 것이 아님
@@ -30,7 +31,7 @@ export class AuthController {
   getProfile(@Req() req: Request, @Res() res: Response) {
     const userProfile = this.authService.getUserProfile(); // 저장된 사용자 프로필을 가져옴
     if (!userProfile) {
-      console.log('come in')
+      console.log('not login yet');
       return res.redirect('/');
     }
     // res.send(`<h1>Hello ${JSON.stringify(userProfile.displayName)}</h1><a href="/auth/logout">Logout</a>`);
