@@ -12,12 +12,16 @@ const passport_1 = require("@nestjs/passport");
 const auth_service_1 = require("./auth.service");
 const auth_controller_1 = require("./auth.controller");
 const github_strategy_1 = require("./github.strategy");
+const axios_1 = require("@nestjs/axios");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
 exports.AuthModule = AuthModule = __decorate([
     (0, common_1.Module)({
-        imports: [passport_1.PassportModule.register({ session: true })],
+        imports: [
+            passport_1.PassportModule.register({ session: true }),
+            axios_1.HttpModule
+        ],
         providers: [auth_service_1.AuthService, github_strategy_1.GithubStrategy],
         controllers: [auth_controller_1.AuthController],
     })

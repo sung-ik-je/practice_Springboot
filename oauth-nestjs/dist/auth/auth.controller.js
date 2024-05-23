@@ -22,15 +22,23 @@ let AuthController = class AuthController {
     }
     async githubLogin() {
     }
-    async githubLoginCallback(req, res) {
-        const user = req.user;
-        await this.authService.validateUser(req.user);
-        res.redirect('/auth/github/profile');
+    async githubLoginCallback(req, res, code) {
+        console.log(req.query.code);
+        console.log(req);
+        console.log('code : ', code);
+        try {
+            const accessTokenResponse = await this.authService.getAccessToken(code);
+            return res.redirect('/auth/github/profile');
+        }
+        catch (error) {
+            console.error('Error fetching access token:', error.response?.data || error.message);
+            return res.status(400).send(error.response?.data || 'Failed to fetch access token');
+        }
     }
     getProfile(req, res) {
         const userProfile = this.authService.getUserProfile();
         if (!userProfile) {
-            console.log('come in');
+            console.log('not login yet');
             return res.redirect('/');
         }
         res.send(`<h1>Hello v2 ${userProfile.displayName}</h1><a href="/auth/logout">Logout</a>`);
@@ -41,10 +49,10 @@ let AuthController = class AuthController {
                 console.error('Error logging out:', err);
             }
             else {
+                this.authService.logoutUserProfile();
                 console.log('Logged out successfully.');
             }
         });
-        this.authService.logoutUserProfile();
         res.redirect('/');
     }
 };
@@ -61,8 +69,9 @@ __decorate([
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('github')),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Res)()),
+    __param(2, (0, common_1.Query)('code')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:paramtypes", [Object, Object, String]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "githubLoginCallback", null);
 __decorate([
