@@ -20,12 +20,12 @@ let GithubStrategy = class GithubStrategy extends (0, passport_1.PassportStrateg
             clientID: process.env.GITHUB_CLIENT_ID,
             clientSecret: process.env.GITHUB_CLIENT_SECRET,
             callbackURL: 'http://localhost:3000/auth/github/callback',
-            scope: ['user:email'],
+            scope: ['user'],
         });
         this.authService = authService;
     }
     async validate(accessToken, refreshToken, profile) {
-        return this.authService.validateUser(profile);
+        return this.authService.validateUser(accessToken, profile);
     }
 };
 exports.GithubStrategy = GithubStrategy;

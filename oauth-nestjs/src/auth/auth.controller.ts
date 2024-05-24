@@ -21,24 +21,8 @@ export class AuthController {
   @UseGuards(AuthGuard('github'))
   async githubLoginCallback(@Req() req: Request, @Res() res: Response, @Query('code') code: string): Promise<any> {
     // 성공적인 인증 후 리디렉션
-
-    console.log(req.query.code);
+    // res의 의미를 잘 생각해야 된다, 현재 함수의 응답으로 redirect를 한다는거지 현재 함수의 요청을 redirect url의 request로 보낸다는 것이 아님
     console.log(req);
-    console.log('code : ', code);
-
-    try {
-      const accessTokenResponse = await this.authService.getAccessToken(code);
-      // 액세스 토큰을 성공적으로 받으면, 원하는 페이지로 리디렉션
-      return res.redirect('/auth/github/profile');
-    } catch (error ) {
-      console.error('Error fetching access token:', error.response?.data || error.message);
-      return res.status(400).send(error.response?.data || 'Failed to fetch access token');
-    }
-
-
-    // console.log("auth check : ", req.isAuthenticated());
-    // await this.authService.validateUser(req.user); // 사용자 프로필을 저장
-    // res.redirect('/auth/github/profile');     // res의 의미를 잘 생각해야 된다, 현재 함수의 응답으로 redirect를 한다는거지 현재 함수의 요청을 redirect url의 request로 보낸다는 것이 아님
   }
 
   @Get('github/profile')

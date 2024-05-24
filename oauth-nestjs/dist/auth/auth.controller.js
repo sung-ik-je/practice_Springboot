@@ -23,17 +23,7 @@ let AuthController = class AuthController {
     async githubLogin() {
     }
     async githubLoginCallback(req, res, code) {
-        console.log(req.query.code);
         console.log(req);
-        console.log('code : ', code);
-        try {
-            const accessTokenResponse = await this.authService.getAccessToken(code);
-            return res.redirect('/auth/github/profile');
-        }
-        catch (error) {
-            console.error('Error fetching access token:', error.response?.data || error.message);
-            return res.status(400).send(error.response?.data || 'Failed to fetch access token');
-        }
     }
     getProfile(req, res) {
         const userProfile = this.authService.getUserProfile();
