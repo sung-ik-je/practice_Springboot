@@ -11,11 +11,11 @@ import { AuthService } from './auth.service';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  // Github OAUTH
+
   @Get('github')
   @UseGuards(AuthGuard('github'))
-  async githubLogin() {
-    // GitHub 로그인 페이지로 리디렉션
-  }
+  async githubLogin() { /* GitHub 로그인 페이지로 리디렉션 */ }
 
   @Get('github/callback')
   @UseGuards(AuthGuard('github'))
@@ -36,6 +36,39 @@ export class AuthController {
     res.send(`<h1>Hello v2 ${userProfile.displayName}</h1><a href="/auth/logout">Logout</a>`);
   }
 
+  // ================================================================================================================================
+  // ================================================================================================================================
+  // ================================================================================================================================
+  // Google OAUTH
+  @Get('google')
+  @UseGuards(AuthGuard('google'))
+  async googleAuth(@Req() req) { /* Google 로그인 페이지로 리디렉션 */ }
+
+  @Get('google/callback')
+  @UseGuards(AuthGuard('google'))
+  async googleAuthRedirect(@Req() req) {
+    return req.user;
+  }
+
+  // ================================================================================================================================
+  // ================================================================================================================================
+  // ================================================================================================================================
+  // KAKAO OAUTH
+
+  @Get('kakao')
+  @UseGuards(AuthGuard('kakao'))
+  async kakaoAuth(@Req() req) { /* Google 로그인 페이지로 리디렉션 */ }
+
+  @Get('kakao/callback')
+  @UseGuards(AuthGuard('kakao'))
+  async kakaoAuthRedirect(@Req() req) {
+    console.log('kakao oauth 적용');
+    console.log(req);
+    return req.user;
+  }
+
+  // logout시 어떤 플랫폼인지 구분을 logout 함수 내부에서 할건지 아님 플랫폼 별로 분리할 것인지?
+  // 위에 2가지 요소 중 어쨋든 로그아웃을 구현하려면 DB에 저장을 해야됨
   @Get('logout')
   logout(@Req() req: Request, @Res() res: Response) {
     req.logout((err) => {

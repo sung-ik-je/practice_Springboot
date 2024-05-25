@@ -20,8 +20,7 @@ let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
     }
-    async githubLogin() {
-    }
+    async githubLogin() { }
     async githubLoginCallback(req, res, code) {
         console.log(req);
     }
@@ -32,6 +31,16 @@ let AuthController = class AuthController {
             return res.redirect('/');
         }
         res.send(`<h1>Hello v2 ${userProfile.displayName}</h1><a href="/auth/logout">Logout</a>`);
+    }
+    async googleAuth(req) { }
+    async googleAuthRedirect(req) {
+        return req.user;
+    }
+    async kakaoAuth(req) { }
+    async kakaoAuthRedirect(req) {
+        console.log('kakao oauth 적용');
+        console.log(req);
+        return req.user;
     }
     logout(req, res) {
         req.logout((err) => {
@@ -72,6 +81,38 @@ __decorate([
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "getProfile", null);
+__decorate([
+    (0, common_1.Get)('google'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('google')),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "googleAuth", null);
+__decorate([
+    (0, common_1.Get)('google/callback'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('google')),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "googleAuthRedirect", null);
+__decorate([
+    (0, common_1.Get)('kakao'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('kakao')),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "kakaoAuth", null);
+__decorate([
+    (0, common_1.Get)('kakao/callback'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('kakao')),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "kakaoAuthRedirect", null);
 __decorate([
     (0, common_1.Get)('logout'),
     __param(0, (0, common_1.Req)()),

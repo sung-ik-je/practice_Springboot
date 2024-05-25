@@ -9,10 +9,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthModule = void 0;
 const common_1 = require("@nestjs/common");
 const passport_1 = require("@nestjs/passport");
+const config_1 = require("@nestjs/config");
 const auth_service_1 = require("./auth.service");
 const auth_controller_1 = require("./auth.controller");
-const github_strategy_1 = require("./github.strategy");
-const axios_1 = require("@nestjs/axios");
+const github_strategy_1 = require("./strategies/github.strategy");
+const google_strategy_1 = require("./strategies/google.strategy");
+const kakao_strategy_1 = require("./strategies/kakao.strategy");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
@@ -20,9 +22,9 @@ exports.AuthModule = AuthModule = __decorate([
     (0, common_1.Module)({
         imports: [
             passport_1.PassportModule.register({ session: true }),
-            axios_1.HttpModule
+            config_1.ConfigModule
         ],
-        providers: [auth_service_1.AuthService, github_strategy_1.GithubStrategy],
+        providers: [auth_service_1.AuthService, github_strategy_1.GithubStrategy, google_strategy_1.GoogleStrategy, kakao_strategy_1.KakaoStrategy],
         controllers: [auth_controller_1.AuthController],
     })
 ], AuthModule);

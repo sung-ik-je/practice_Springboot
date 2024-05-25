@@ -6,5 +6,9 @@ export declare class AuthController {
     githubLogin(): Promise<void>;
     githubLoginCallback(req: Request, res: Response, code: string): Promise<any>;
     getProfile(req: Request, res: Response): void;
+    googleAuth(req: any): Promise<void>;
+    googleAuthRedirect(req: any): Promise<any>;
+    kakaoAuth(req: any): Promise<void>;
+    kakaoAuthRedirect(req: any): Promise<any>;
     logout(req: Request, res: Response): void;
 }
