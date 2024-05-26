@@ -27,16 +27,21 @@ let AuthController = class AuthController {
     getProfile(req, res) {
         const userProfile = this.authService.getUserProfile();
         if (!userProfile) {
-            console.log('not login yet');
+            console.log('github not login yet');
             return res.redirect('/');
         }
         res.send(`<h1>Hello v2 ${userProfile.displayName}</h1><a href="/auth/logout">Logout</a>`);
     }
-    async googleAuth(req) { }
+    async googleAuth(req) {
+        console.log('google redirection');
+    }
     async googleAuthRedirect(req) {
+        console.log('google login success');
         return req.user;
     }
-    async kakaoAuth(req) { }
+    async kakaoAuth(req) {
+        console.log('kakao redirection');
+    }
     async kakaoAuthRedirect(req) {
         console.log('kakao oauth 적용');
         console.log(req);

@@ -29,7 +29,7 @@ export class AuthController {
   getProfile(@Req() req: Request, @Res() res: Response) {
     const userProfile = this.authService.getUserProfile(); // 저장된 사용자 프로필을 가져옴
     if (!userProfile) {
-      console.log('not login yet');
+      console.log('github not login yet');
       return res.redirect('/');
     }
     // res.send(`<h1>Hello ${JSON.stringify(userProfile.displayName)}</h1><a href="/auth/logout">Logout</a>`);
@@ -42,11 +42,15 @@ export class AuthController {
   // Google OAUTH
   @Get('google')
   @UseGuards(AuthGuard('google'))
-  async googleAuth(@Req() req) { /* Google 로그인 페이지로 리디렉션 */ }
+  async googleAuth(@Req() req) { 
+    /* Google 로그인 페이지로 리디렉션 */
+    console.log('google redirection'); 
+  }
 
   @Get('google/callback')
   @UseGuards(AuthGuard('google'))
   async googleAuthRedirect(@Req() req) {
+    console.log('google login success');
     return req.user;
   }
 
@@ -57,7 +61,10 @@ export class AuthController {
 
   @Get('kakao')
   @UseGuards(AuthGuard('kakao'))
-  async kakaoAuth(@Req() req) { /* Google 로그인 페이지로 리디렉션 */ }
+  async kakaoAuth(@Req() req) { 
+    /* Google 로그인 페이지로 리디렉션 */ 
+    console.log('kakao redirection');
+  }
 
   @Get('kakao/callback')
   @UseGuards(AuthGuard('kakao'))
