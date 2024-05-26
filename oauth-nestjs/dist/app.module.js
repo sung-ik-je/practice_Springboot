@@ -8,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
+const serve_static_1 = require("@nestjs/serve-static");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const auth_module_1 = require("./auth/auth.module");
-const passport_1 = require("@nestjs/passport");
+const path_1 = require("path");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -19,7 +20,9 @@ exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             auth_module_1.AuthModule,
-            passport_1.PassportModule.register({ defaultStrategy: 'github' })
+            serve_static_1.ServeStaticModule.forRoot({
+                rootPath: (0, path_1.join)(__dirname, '..', 'public'),
+            }),
         ],
         controllers: [
             app_controller_1.AppController

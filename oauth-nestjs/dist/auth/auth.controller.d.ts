@@ -4,8 +4,7 @@ export declare class AuthController {
     private readonly authService;
     constructor(authService: AuthService);
     githubLogin(): Promise<void>;
-    githubLoginCallback(req: Request, res: Response, code: string): Promise<any>;
-    getProfile(req: Request, res: Response): void;
+    githubLoginCallback(req: Request, res: Response): Promise<any>;
     googleAuth(req: any): Promise<void>;
     googleAuthRedirect(req: any): Promise<any>;
     kakaoAuth(req: any): Promise<void>;

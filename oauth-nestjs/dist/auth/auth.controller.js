@@ -20,17 +20,11 @@ let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
     }
-    async githubLogin() { }
-    async githubLoginCallback(req, res, code) {
-        console.log(req);
+    async githubLogin() {
+        console.log('redirection');
     }
-    getProfile(req, res) {
-        const userProfile = this.authService.getUserProfile();
-        if (!userProfile) {
-            console.log('github not login yet');
-            return res.redirect('/');
-        }
-        res.send(`<h1>Hello v2 ${userProfile.displayName}</h1><a href="/auth/logout">Logout</a>`);
+    async githubLoginCallback(req, res) {
+        return res.send(req.user);
     }
     async googleAuth(req) {
         console.log('google redirection');
@@ -73,19 +67,10 @@ __decorate([
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('github')),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Res)()),
-    __param(2, (0, common_1.Query)('code')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object, String]),
-    __metadata("design:returntype", Promise)
-], AuthController.prototype, "githubLoginCallback", null);
-__decorate([
-    (0, common_1.Get)('github/profile'),
-    __param(0, (0, common_1.Req)()),
-    __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
-    __metadata("design:returntype", void 0)
-], AuthController.prototype, "getProfile", null);
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "githubLoginCallback", null);
 __decorate([
     (0, common_1.Get)('google'),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('google')),

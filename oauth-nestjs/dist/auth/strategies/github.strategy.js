@@ -25,6 +25,7 @@ let GithubStrategy = class GithubStrategy extends (0, passport_1.PassportStrateg
         this.authService = authService;
     }
     async validate(accessToken, refreshToken, profile) {
+        console.log('what the');
         return this.authService.validateUser(accessToken, profile);
     }
 };
