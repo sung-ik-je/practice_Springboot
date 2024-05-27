@@ -1,10 +1,6 @@
-// lib
 import { Controller, Get, Query, Req, Res, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Request, Response } from 'express';
-import { ParsedQs } from 'qs';
-
-// code
 import { AuthService } from './auth.service';
 
 @Controller('auth')
@@ -24,9 +20,6 @@ export class AuthController {
     /* GitHub 로그인 페이지로 리디렉션 */ 
   }
 
-  /*
-  
-   */
   @Get('github/callback')
   @UseGuards(AuthGuard('github'))
   async githubLoginCallback(@Req() req: Request, @Res() res: Response): Promise<any> {  
@@ -34,7 +27,7 @@ export class AuthController {
     // 성공적인 인증 후 리디렉션
     // res의 의미를 잘 생각해야 된다, 현재 함수의 응답으로 redirect를 한다는거지 현재 함수의 요청을 redirect url의 request로 보낸다는 것이 아님
     
-    // return req.user;   // 원하는대로 동작 X, 
+    // return req.user;   // 원하는대로 동작 X, 명시적으로 response가 정의되어 있기 때문에 해당 핸들러 명시적으로 응답 보내야 한다
     return res.send(req.user);  
   }
 
