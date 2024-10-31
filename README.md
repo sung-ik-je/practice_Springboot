@@ -1,3 +1,1 @@
-# practice
-
-# 겅부
+# Just a try
