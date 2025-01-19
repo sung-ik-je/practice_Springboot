@@ -1,3 +1,5 @@
 /.metadata/
 /.DS_Store
 .DS_Store
+/crawling_/*.txt
+/crawling_/*.json
